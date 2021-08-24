@@ -53,7 +53,7 @@ export default function TextForm(props) {
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange}
-          placeholder='Enter text here' style={{backgroundColor: props.mode === 'dark' ? '#212529' : 'white',
+          placeholder='Enter text here' style={{backgroundColor: props.mode === 'dark' ? 'rgb(19, 70, 110)' : 'white',
           color: props.mode === 'dark' ? 'white' : 'black'}}></textarea>
         </div>
         <button className="btn btn-sm btn-primary mx-2" onClick={handleUpClick} >Convert to Uppercase</button>
