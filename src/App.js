@@ -46,7 +46,7 @@ function App() {
     if(mode === 'primary'){
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
-      showAlert("Dark mode has been enabeled", "success");
+      showAlert("Dark mode has been enabeled", "warning");
       // document.title = "TextUtils - Dark Mode";
       // setInterval(() => {
       //   document.title = "TextUtils is Amazing !";
@@ -78,15 +78,15 @@ function App() {
         <Navbar title="Textutils" mode={mode} toggleMode={toggleMode}/>
         <Alert alert={alert}/>
         <Switch>
-          <Route exact path="/about">
-            <About myStyle={myStyle} />
-          </Route>
           <Route exact path="/">
             <TextForm heading='Enter the text to analyze below:' mode={mode} showAlert={showAlert}/>
           </Route>
-          {/* <Route path="/home">
+          <Route path="/home">
             <TextForm heading='Enter the text to analyze below:' mode={mode} showAlert={showAlert}/>
-          </Route> */}
+          </Route>
+          <Route exact path="/about">
+            <About myStyle={myStyle} />
+          </Route>
         </Switch>
       </Router>
     </>

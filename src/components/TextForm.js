@@ -2,6 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 
 export default function TextForm(props) {
+
+  const [text, setText] = useState('');
+  const [wordCount, setWordCount] = useState(0);
+
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
@@ -20,7 +24,7 @@ export default function TextForm(props) {
   }
 
   const handleExtraSpaces = () => {
-    let newText = text.split(/ +/);
+    let newText = text.split(/[ ]+/);
     setText(newText.join(' '));
     props.showAlert("Extra spaces managed !", "success");
   }
@@ -38,17 +42,12 @@ export default function TextForm(props) {
     if (enteredText.length === 0){
       setWordCount(0);
     }
-    // console.log(event.target.value + " - " + event.target.value.length);
-    // console.log(text + " - " + text.length);
-    // console.log("--------------------");
   }
 
-  const [text, setText] = useState('');
-  const [wordCount, setWordCount] = useState(0);
   return (
     <>
       <div className='container' style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
-        <h1 className='mb-3'>{props.heading}</h1>
+        <h2 className='mb-3'>{props.heading}</h2>
         <div className="mb-3">
           <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange}
           placeholder='Enter text here' style={{backgroundColor: props.mode === 'dark' ? 'rgb(19, 70, 110)' : 'white',
@@ -61,7 +60,7 @@ export default function TextForm(props) {
         <button disabled={text.length === 0} className="btn btn-sm btn-primary mx-2 my-1" onClick={handleClearText} >Clear Text</button>
       </div>
       <div className="container my-4" style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
-        <h2>Your text summary</h2>
+        <h3>Your Text Summary:</h3>
         <p><b>{wordCount}</b> words and <b>{text.length}</b> characters</p>
         <p><b>{(0.008 * wordCount).toFixed(3)}</b> minutes reading</p>
         <h3>Preview</h3>

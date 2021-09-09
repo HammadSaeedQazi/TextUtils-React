@@ -2,26 +2,6 @@
 
 export default function About(props) {
 
-  // const [btnText, setBtnText] = useState("Enable Dark Mode")
-
-  // const toggleStyle = ()=>{
-  //   if(myStyle.color === 'white'){
-  //     setMyStyle({
-  //       color:'black',
-  //       backgroundColor:'white',
-  //       border:'1px solid white'
-  //     });
-  //     // setBtnText("Enable Dark Mode");
-  //   }
-  //   else{
-  //     setMyStyle({
-  //       color:'white',
-  //       backgroundColor:'#212529'
-  //     });
-  //     // setBtnText("Enable Light Mode");
-  //   }
-  // }
-
   return (
     <div className='container my-2' style={{color: props.myStyle.backgroundColor === "white" ? "black" : "white"}}>
       <h1>About Us</h1>
@@ -63,7 +43,6 @@ export default function About(props) {
           </div>
         </div>
       </div>
-      {/* <button type="button" className="btn btn-dark my-3" onClick={toggleStyle}>{btnText}</button> */}
     </div>
   )
 }
